@@ -1,5 +1,3 @@
-# [Trang chủ](https://ppap-1264589.github.io/interesting-solution)
-
 ## Bài Toán
 [DQUERY](https://oj.vnoi.info/problem/dquery)
 
@@ -11,7 +9,9 @@
 
 [QUORA](https://www.quora.com/Is-there-any-way-to-solve-the-dquery-problem-on-SPOJ-using-persistent-segment-trees-an-online-solution)
 
-# [Code](https://ideone.com/qlu6x0)
+[Hoang1264589](https://oj.vnoi.info/post/284-ppap_1264589)
+
+# [Code - Persistent Segment Tree](https://ideone.com/qlu6x0)
 ```c++
 #include <bits/stdc++.h>
 #define up(i,a,b) for (int i = (int)a; i <= (int)b; i++)
@@ -73,11 +73,6 @@ int pre[1000001];
 signed main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    #define Task "DQUERY"
-    if (fopen(Task".inp", "r")){
-        freopen(Task".inp", "r", stdin);
-        freopen(Task".out", "w", stdout);
-    }
 
     cin >> n;
     up(i,1,n) cin >> a[i];
@@ -88,9 +83,7 @@ signed main(){
             update(ROOT[i], ROOT[i-1], 1, n, pre[a[i]], -1);
             update(ROOT[i], ROOT[i], 1, n, i, 1);
         }
-        else{
-            update(ROOT[i], ROOT[i-1], 1, n, i, 1);
-        }
+        else update(ROOT[i], ROOT[i-1], 1, n, i, 1);
         pre[a[i]] = i;
     }
 
